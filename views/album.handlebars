@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="transparent"></div>
+  <div class="album-form"><a href="/">Photocopy</a></div>	
+  <div class="album-form">
+  	<form id="album" class="form" method="GET" action="/album">
+  		<p><input id="id" class="text-input" name="albumid" type="text" placeholder="ENTER IMGUR ALBUM URL"></p>
+  		<p><button class="button" type="submit">Fetch</button></p>
+  	</form>
+  	{{error}}
+  </div>
+</div>

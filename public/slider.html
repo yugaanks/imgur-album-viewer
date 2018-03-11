@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="slider.css">
+	
+</head>
+<body>
+<div class="container">
+  <div class="transparent"></div>
+  <div class="slider" id="slider">
+
+    <div class="slide" id="slide-0"><span class="temp"></span></div>
+    <div class="slide" id="slide-1"><span class="temp"></span></div>
+    <div class="slide" id="slide-2"><span class="temp"></span></div>
+
+    <button class="w3-black w3-hover-black btn-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-black w3-hover-black btn-right" onclick="plusDivs(1)">&#10095;</button>
+  </div>
+</div>
+<script type="text/javascript">
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs((slideIndex += n));
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("slide");
+		  if (n > x.length) {
+		    slideIndex = 1;
+		  }
+		  if (n < 1) {
+		    slideIndex = x.length;
+		  }
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";
+		  }
+		  x[slideIndex - 1].style.display = "block";
+		}
+	</script>
+</body>
+</html>
