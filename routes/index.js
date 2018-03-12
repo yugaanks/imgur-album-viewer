@@ -15,7 +15,12 @@ const constructorMethod = (app) => {
 		try {
 			var albumUrl=req.query.albumid;
 			var index=albumUrl.indexOf('/a/');
-			var albumId=albumUrl.slice(index+3);
+			if(index === -1) {
+				var albumId=albumUrl.slice(albumUrl.indexOf('/gallery/')+9);
+			}
+			else {
+				var albumId=albumUrl.slice(index+3);
+			}
 			var cleanId=albumId.replace(/[\/]/g, "");
 			const response= await axios({
 				method: 'get',
@@ -25,7 +30,7 @@ const constructorMethod = (app) => {
 			res.render('home', {images: response.data.data});
 		}
 		catch(err) {
-			res.render('album', {error: "Album not found!"});
+			res.render('album', {error: "Album not found! (format: imgur.com/a/"});
 		}
 	});
 

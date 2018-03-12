@@ -3,7 +3,9 @@
   <div class="goback"><a href="/">Home</a></div>
   <div class="slider" id="slider">
   {{#each images}}
-    <div style="background-image: url('{{link}}')" class="slide" id="slide-{{@index}}"><span class="temp"></span></div>
+  	{{#if link}}
+    	<div style="background-image: url('{{link}}')" class="slide" id="slide-{{@index}}"><span class="temp"></span></div>
+    {{/if}}
    {{/each}} 
     <button class="btn-left" onclick="plusDivs(-1)">&#10094;</button>
     <button class="btn-right" onclick="plusDivs(1)">&#10095;</button>
